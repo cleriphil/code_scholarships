@@ -5,6 +5,7 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Coda' rel='stylesheet' type='text/css'>
   <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
   <script type="text/javascript">
   // This identifies your website in the createToken call below
@@ -14,8 +15,8 @@
 </head>
 <body>
 
-  <nav class="navbar navbar-inverse" id="my-navbar">
-    <div class="container-fluid">
+  <nav class="navbar navbar-settings" id="my-navbar">
+    <div class="container">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapse" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
           <span class="sr-only">Toggle navigation</span>
@@ -28,7 +29,7 @@
       </div>
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav navbar-left special-color">
+        <ul class="navbar-nav navbar-left special-color">
           <% if current_user == nil %>
             <li><%= link_to 'You must log in to view all contents of the site.', log_in_path %></li>
           <% else %>
@@ -37,7 +38,7 @@
           <% end %>
         </ul>
 
-        <ul class="nav navbar-nav navbar-right special-color">
+        <ul class="navbar-nav navbar-right special-color">
           <% if current_user == nil %>
             <li><%= link_to 'Log In', log_in_path %></li>
             <li><%= link_to 'Register', new_user_path %></li>
