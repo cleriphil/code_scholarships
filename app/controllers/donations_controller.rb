@@ -13,12 +13,11 @@ class DonationsController < ApplicationController
     @user.donations.push(@donation)
 
 
-
     if @donation.save
       flash[:notice] = "Your donation has been made!"
       @scholarship.amount_fulfilled += @donation.amount
       @scholarship.save
-      redirect_to scholarship_path(@scholarship)
+      redirect_to new_scholarship_donation_charge_path(@scholarship, @donation)
     else
       flash[:alert] = "There was a problem with your submission. Please try again."
       render :new

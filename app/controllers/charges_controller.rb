@@ -1,10 +1,14 @@
 class ChargesController < ApplicationController
   def new
+    @donation = Donation.find(params[:donation_id])
+    @scholarship = Scholarship.find(params[:scholarship_id])
+
   end
 
   def create
     # Amount in cents
-    @amount = 5000000
+
+    @donation = Donation.find(params[:id])
 
     customer = Stripe::Customer.create(
       :email => 'example@stripe.com',
@@ -13,7 +17,7 @@ class ChargesController < ApplicationController
 
     charge = Stripe::Charge.create(
       :customer    => customer.id,
-      :amount      => @amount,
+      :amount      => @donation.amount,
       :description => 'Rails Stripe customer',
       :currency    => 'usd'
     )

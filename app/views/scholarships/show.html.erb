@@ -5,7 +5,7 @@
 <%= @scholarship.description %>
 Requested: $<%= @scholarship.amount_requested %>
 Fulfilled: $<%= @scholarship.amount_fulfilled %>
-<%= User.find(@scholarship.user_id).name %>
+<%= link_to User.find(@scholarship.user_id).name, user_path(@scholarship.user_id) %>
 
 <h2><%= @progress %>% fulfilled</h2>
 <div class="progress">
@@ -23,7 +23,7 @@ Fulfilled: $<%= @scholarship.amount_fulfilled %>
   <h3>Donations</h3>
   <% @scholarship.donations.each do |donation| %>
     Amount: <%= donation.amount %>
-    Donated by: <%= User.find(donation.user_id).name %>
+    Donated by: <%= link_to User.find(donation.user_id).name, user_path(donation.user_id) %>
   <% end %>
 <% else %>
   <h4>Be the first to donate!</h4>

@@ -1,12 +1,13 @@
-<%= form_tag charges_path do %>
+<%= form_tag  scholarship_donation_charges_path(@scholarship, @donation) do %>
   <article>
     <label class="amount">
-      <span>Amount: $50000.00</span>
+      <span>Amount: $<%= @donation.amount %>.00</span>
     </label>
   </article>
 
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
           data-description="A month's subscription"
-          data-amount="5000000"></script>
+          <% correct_amount = @donation.amount * 100 %>
+          data-amount="<%= correct_amount %>"></script>
 <% end %>
