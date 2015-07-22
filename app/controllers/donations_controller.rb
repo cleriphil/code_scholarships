@@ -11,6 +11,9 @@ class DonationsController < ApplicationController
     @donation = @scholarship.donations.new(donation_params)
     @donation.user_id = current_user.id
     @user.donations.push(@donation)
+
+
+
     if @donation.save
       flash[:notice] = "Your donation has been made!"
       @scholarship.amount_fulfilled += @donation.amount
