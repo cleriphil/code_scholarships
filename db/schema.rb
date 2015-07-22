@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150722171747) do
+ActiveRecord::Schema.define(version: 20150722172429) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,7 +25,6 @@ ActiveRecord::Schema.define(version: 20150722171747) do
   create_table "scholarships", force: :cascade do |t|
     t.integer "amount_requested", default: 0
     t.integer "amount_fulfilled", default: 0
-    t.integer "interest_rate",    default: 0
     t.string  "description"
     t.string  "type"
     t.integer "user_id"
