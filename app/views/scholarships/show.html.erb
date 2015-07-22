@@ -1,26 +1,64 @@
-<h2><%= @scholarship.title %></h2>
+<div class="col-md-8">
+
+  <h2><%= @scholarship.title %></h2>
+  <p>Submitted by <%= link_to User.find(@scholarship.user_id).name, user_path(@scholarship.user_id) %></p>
+
+  <table class="table table-bordered">
+    <thead>
+      <th>Type</th>
+      <th>Amount</th>
+      <th>Date</th>
+    </thead>
+    <tbody>
+      <td><%= @scholarship.study_type %></td>
+      <td><%= @scholarship.amount_requested  %></td>
+      <td><%= @scholarship.created_at  %></td>
+      <!-- add dates for this page -->
+    </tbody>
+  </table>
+
+  <h3>Description:</h3>
+  <p><%= @scholarship.description %></p>
+
+  <h2><%= @progress %>% fulfilled</h2>
+  <div class="progress">
+    <div class="progress-bar" style="width: <%= @progress %>%">
+      <span class="sr-only">60% Complete</span>
+    </div>
+  </div>
 
 
-<%= @scholarship.study_type %>
-<%= @scholarship.description %>
-Requested: $<%= @scholarship.amount_requested %>
-Fulfilled: $<%= @scholarship.amount_fulfilled %>
-<%= User.find(@scholarship.user_id).name %>
 
-
-<% if @scholarship.amount_fulfilled >= @scholarship.amount_requested %>
-  <h3>Success! Scholarship needs have been met!</h3>
-<% end %>
-
-<% if @scholarship.donations.any? %>
-  <h3>Donations</h3>
-  <% @scholarship.donations.each do |donation| %>
-    Amount: <%= donation.amount %>
-    Donated by: <%= User.find(donation.user_id).name %>
+  <% if @scholarship.amount_fulfilled >= @scholarship.amount_requested %>
+    <h3>Success! Scholarship needs have been met!</h3>
   <% end %>
-<% else %>
-  <h4>Be the first to donate!</h4>
-<% end %>
-<br />
 
-<%= link_to 'Donate', new_scholarship_donation_path(@scholarship) %>
+  <%= link_to 'Donate', new_scholarship_donation_path(@scholarship), class: "btn btn-success btn-lg" %>
+
+</div>
+
+<div class="col-md-4">
+
+  <% if @scholarship.donations.any? %>
+    <h3>Donations</h3>
+      <table class="table table-bordered">
+        <thead>
+          <th width="100px">Amount</th>
+          <th>Donor</th>
+        </thead>
+        <% @scholarship.donations.each do |donation| %>
+
+        <tbody>
+
+          <td><%= donation.amount %></td>
+          <td><%= link_to User.find(donation.user_id).name, user_path(donation.user_id) %></td>
+          <% end %>
+
+        </tbody>
+      </table>
+  <% else %>
+    <h4>Be the first to donate!</h4>
+  <% end %>
+  <br/>
+
+</div>
