@@ -11,24 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150722203852) do
+ActiveRecord::Schema.define(version: 20150722233822) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "donations", force: :cascade do |t|
-    t.integer "amount",         default: 0
-    t.integer "user_id"
-    t.integer "scholarship_id"
+    t.integer  "amount",         default: 0
+    t.integer  "user_id"
+    t.integer  "scholarship_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "scholarships", force: :cascade do |t|
-    t.integer "amount_requested", default: 0
-    t.integer "amount_fulfilled", default: 0
-    t.string  "description"
-    t.string  "study_type"
-    t.integer "user_id"
-    t.string  "title"
+    t.integer  "amount_requested", default: 0
+    t.integer  "amount_fulfilled", default: 0
+    t.string   "description"
+    t.string   "study_type"
+    t.integer  "user_id"
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: :cascade do |t|
