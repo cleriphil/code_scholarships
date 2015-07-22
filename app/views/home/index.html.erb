@@ -1,6 +1,7 @@
 <h1>Code Scholarships</h1>
 
 
+
 <% if current_user && current_user.donor? %>
   <h2>Find a scholarship to donate to...</h2>
 <% else %>
@@ -20,3 +21,9 @@
   </li>
   <% end %>
 </ul>
+
+<% if current_user %>
+  <% if current_user.admin %>
+    <h2> <%= link_to "Administration", users_path %> </h2>
+  <% end %>
+<% end %>
