@@ -1,5 +1,6 @@
 <%= render 'layouts/errors', :object => @scholarship %>
 
+
 <%= bootstrap_form_for [@scholarship] do |f| %>
   <%= f.text_field :title %>
   <%= f.number_field :amount_requested %>
