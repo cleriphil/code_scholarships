@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
   validates :description, :presence => true
   validates :city, :presence => true
 
+  has_many :scholarships
+  has_many :donations
 
   def encrypt_password
     self.password_salt = BCrypt::Engine.generate_salt

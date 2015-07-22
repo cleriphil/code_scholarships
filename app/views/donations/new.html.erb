@@ -1,0 +1,10 @@
+<% if current_user %>
+
+<h2>Donate to the cause!</h2>
+<%= render 'form' %>
+
+<% else %>
+<h2>Please sign in to donate!</h2>
+<%= link_to 'Log In', log_in_path %> <br>
+<%= link_to 'Register', new_user_path %>
+<% end %>

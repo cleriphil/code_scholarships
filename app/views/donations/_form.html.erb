@@ -1,0 +1,6 @@
+<%= render 'layouts/errors', :object => @donation %>
+
+<%= bootstrap_form_for [@scholarship, @donation] do |f| %>
+  <%= f.number_field :amount %>
+  <%= f.submit %>
+<% end %>
