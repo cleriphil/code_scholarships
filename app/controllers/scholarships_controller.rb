@@ -4,14 +4,16 @@ class ScholarshipsController < ApplicationController
   end
 
   def new
-    @scholarship = Scholarship.new
+    @user = current_user
+    @scholarship = @user.scholarships.new
   end
 
   def create
-    @scholarship = Scholarship.new(scholarship_params)
+    @user = current_user
+    @scholarship = @user.scholarships.new(scholarship_params)
     if @scholarship.save()
       flash[:notice] = "Your scholarship as been added!"
-      redirect_to scholarships_path
+      redirect_to root_path
     else
       flash[:flash] = "There was a problem with your submission. Please try again."
       render :new
