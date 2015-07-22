@@ -1,0 +1,20 @@
+<h2><%= @scholarship.title %></h2>
+
+
+<%= @scholarship.study_type %>
+<%= @scholarship.description %>
+Requested: $<%= @scholarship.amount_requested %>
+Fulfilled: $<%= @scholarship.amount_fulfilled %>
+<%= User.find(@scholarship.user_id).name %>
+
+<% if @scholarship.donations.any? %>
+  <h3>Donations</h3>
+  <% @scholarship.donations.each do |donation| %>
+    Amount: <%= donation.amount %>
+    Donated by: <%= User.find(donation.user_id).name %>
+  <% end %>
+<% else %>
+  <h4>Be the first to donate!</h4>
+<% end %>
+<br />
+<%= link_to 'Donate', new_scholarship_donation_path(@scholarship) %>
