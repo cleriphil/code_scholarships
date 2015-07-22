@@ -11,6 +11,7 @@ gem 'pry'
 gem 'bootstrap-sass'
 gem 'bootstrap_form'
 gem 'bcrypt', require: "bcrypt"
+gem 'stripe', git: 'https://github.com/stripe/stripe-ruby'
 
 group :development do
   gem 'byebug'
