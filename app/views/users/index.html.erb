@@ -1,0 +1,11 @@
+<% if current_user %>
+<h1>Users</h1>
+  <% if current_user.admin %>
+    <% @users.each do |user| %>
+      <%= user.name %> <%= link_to "Delete", user_path(user), :method => :delete, class: "btn btn-class btn-danger btn-xs" %>
+    <% end %>
+  <br>
+  <% else %>
+    <p>You are not authorized to perform any actions.</p>
+  <% end %>
+<% end %>

@@ -26,7 +26,8 @@
           <% if current_user == nil %>
             <li><%= link_to 'You must log in to view all contents of the site.', log_in_path %></li>
           <% else %>
-            <li><%= link_to "Logged in as: #{current_user.username}", '/'  %></li>
+            <li><%= link_to "Logged in as: #{current_user.username}", user_path(current_user)  %></li>
+            <li><%= link_to "Edit #{current_user.username} information", edit_user_path(current_user) %></li>
           <% end %>
         </ul>
 

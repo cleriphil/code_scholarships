@@ -3,6 +3,11 @@ class User < ActiveRecord::Base
   attr_accessor :password
   validates_confirmation_of :password
   before_save :encrypt_password
+  validates :name, :presence => true
+  validates :username, :presence => true
+  validates :email, :presence => true
+  validates :description, :presence => true
+  validates :city, :presence => true
 
 
   def encrypt_password
