@@ -1,21 +1,20 @@
 <h1>Sign Up</h1>
-<%=form_for User.new do |f| %>
-<%=f.label :username %>
-<%=f.text_field :username %>
-<%=f.label :password %>
-<%=f.password_field :password %>
-<%=f.label :password_confirmation %>
-<%=f.password_field :password_confirmation %>
-<%=f.label :name %>
-<%=f.text_field :name %>
-<%=f.label :email %>
-<%=f.text_field :email %>
-<%=f.label :city %>
-<%=f.text_field :city %>
-<%=f.label :description %>
-<%=f.text_area :description %>
-<%=f.label :donor, "Are you a donor?"%>
-<%=f.collection_radio_buttons :donor, [[true, 'Yes'], [false, 'No']], :first, :last %>
-
-<%=f.submit "Sign Up" %>
+  <%=form_for @user do |f| %>
+  <%=f.label :username %><br>
+  <%=f.text_field :username %><br>
+  <%=f.label :password %><br>
+  <%=f.password_field :password %><br>
+  <%=f.label :password_confirmation %><br>
+  <%=f.password_field :password_confirmation %><br>
+  <%=f.label :name %><br>
+  <%=f.text_field :name %><br>
+  <%=f.label :email %><br>
+  <%=f.text_field :email %><br>
+  <%=f.label :city %><br>
+  <%=f.text_field :city %><br>
+  <%=f.label :description %><br>
+  <%=f.text_area :description %><br>
+  <%=f.label :donor, "Are you a donor?"%>
+  <%=f.collection_radio_buttons :donor, [[true, 'Yes'], [false, 'No']], :first, :last %><br>
+  <%=f.submit "Save", :class => "btn btn-success" %>
 <%end%>
