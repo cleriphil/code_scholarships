@@ -1,0 +1,8 @@
+<li>
+  <%= link_to scholarship.title, scholarship_path(scholarship) %>
+  <%= scholarship.study_type %>
+  <%= scholarship.description %>
+  Requested: $<%= scholarship.amount_requested %>
+  Fulfilled: $<%= scholarship.amount_fulfilled %>
+  <%= User.find(scholarship.user_id).name %>
+</li>

@@ -1,6 +1,11 @@
 class ScholarshipsController < ApplicationController
   def index
     @scholarships = Scholarship.all
+    if params[:search]
+      @scholarships = Scholarship.search(params[:search])
+    else
+      @scholarships = Scholarship.all
+    end
   end
 
   def show
