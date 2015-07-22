@@ -6,9 +6,10 @@ Rails.application.routes.draw do
 
   resources :users
   resources :scholarships do
-    resources :donations do
+    resources :donations
+  end
+
+  resources :donations do
       resources :charges
     end
-
-  end
 end
