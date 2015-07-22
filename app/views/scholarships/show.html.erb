@@ -7,6 +7,13 @@ Requested: $<%= @scholarship.amount_requested %>
 Fulfilled: $<%= @scholarship.amount_fulfilled %>
 <%= User.find(@scholarship.user_id).name %>
 
+<h2><%= @progress %>% fulfilled</h2>
+<div class="progress">
+  <div class="progress-bar" style="width: <%= @progress %>%">
+    <span class="sr-only">60% Complete</span>
+  </div>
+</div>
+
 
 <% if @scholarship.amount_fulfilled >= @scholarship.amount_requested %>
   <h3>Success! Scholarship needs have been met!</h3>
