@@ -8,11 +8,46 @@
 </head>
 <body>
 
-  <div class="container">
+  <nav class="navbar navbar-inverse" id="my-navbar">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapse" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+        <%= link_to "Home", "/", class: "navbar-brand"  %>
+      </div>
+
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-left special-color">
+          <% if current_user == nil %>
+            <li><%= link_to 'You must log in to view all contents of the site.', log_in_path %></li>
+          <% else %>
+            <li><%= link_to "Logged in as: #{current_user.username}", '/'  %></li>
+          <% end %>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right special-color">
+          <% if current_user == nil %>
+            <li><%= link_to 'Log In', log_in_path %></li>
+            <li><%= link_to 'Register', new_user_path %></li>
+          <% else %>
+            <li><%= link_to "Log Out", log_out_path %></li>
+          <% end %>
+        </ul>
+      </div>
+
+    </div>
+  </nav>
+
+  <div class = "container">
     <%= flash[:notice] %>
     <%= flash[:alert] %>
+
     <%= yield %>
   </div>
-
 </body>
 </html>
