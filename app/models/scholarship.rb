@@ -7,4 +7,10 @@ class Scholarship < ActiveRecord::Base
   has_many :donations
   belongs_to :user
 
+  def self.search(search)
+    where("description LIKE ?", "%#{search}%")
+    where("title LIKE ?", "%#{search}%")
+    where("study_type LIKE ?", "%#{search}%")
+  end
+
 end
