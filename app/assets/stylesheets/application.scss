@@ -15,3 +15,36 @@
  */
  @import 'bootstrap-sprockets';
  @import 'bootstrap';
+
+/* NAVBAR */
+
+.navbar-header {
+  font-family: 'Coda', cursive;
+}
+
+.navbar-brand {
+  background-color: #136ad5;
+  color: white;
+}
+
+.navbar-settings a:hover {
+  background-color: #136ad5;
+  color: #fb8a2e;
+}
+
+.navbar-settings {
+  background-color: #136ad5;
+  color: white;
+}
+
+.navbar-nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+}
+
+.navbar-nav {
+  position: relative;
+  top: 15px;
+  list-style: none;
+}
