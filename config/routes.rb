@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get "/log-out" => "sessions#destroy", as: :log_out
 
   resources :users
+  resources :charges
   resources :scholarships do
     resources :donations
   end
