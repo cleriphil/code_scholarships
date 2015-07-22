@@ -1,0 +1,8 @@
+<%= render 'layouts/errors', :object => @scholarship %>
+
+<%= bootstrap_form_for @scholarship do |f| %>
+  <%= f.text_field :amount_requested %>
+  <%= f.text_area :description %>
+  <%= f.select(:study_type, ['Bootcamp', 'University', 'Self-Learning']) %>
+  <%= f.submit %>
+<% end %>

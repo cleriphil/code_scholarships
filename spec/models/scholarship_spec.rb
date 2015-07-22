@@ -7,6 +7,6 @@ describe Scholarship, type: :model do
   it { should validate_presence_of :amount_requested }
   it { should validate_presence_of :amount_fulfilled }
   it { should validate_presence_of :description }
-  it { should validate_presence_of :type }
+  it { should validate_presence_of :study_type }
 
 end

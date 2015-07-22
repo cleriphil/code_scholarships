@@ -1,0 +1,14 @@
+<h2>Scholarships</h2>
+
+<ul>
+<% @scholarships.each do |scholarship| %>
+  <li>
+    <%= scholarship.study_type %>
+    <%= scholarship.description %>
+    Requested: <%= scholarship.amount_requested %>
+    Fulfilled: <%= scholarship.amount_fulfilled %>
+    <%= scholarship.user %>
+  </li>
+<% end %>
+</ul>
+<%= link_to "Request a Scholarship", new_scholarship_path %>

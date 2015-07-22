@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150722172429) do
+ActiveRecord::Schema.define(version: 20150722184556) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20150722172429) do
     t.integer "amount_requested", default: 0
     t.integer "amount_fulfilled", default: 0
     t.string  "description"
-    t.string  "type"
+    t.string  "study_type"
     t.integer "user_id"
   end
 
