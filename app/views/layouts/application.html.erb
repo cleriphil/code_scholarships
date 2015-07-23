@@ -25,7 +25,7 @@
           <span class="icon-bar"></span>
         </button>
 
-        <%= link_to "Home", "/", class: "navbar-brand"  %>
+        <%= link_to "Code Scholarships", "/", class: "navbar-brand"  %>
       </div>
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -33,12 +33,17 @@
           <% if current_user == nil %>
             <li><%= link_to 'You must log in to view all contents of the site.', log_in_path %></li>
           <% else %>
-            <li><%= link_to "Logged in as: #{current_user.username}", user_path(current_user)  %></li>
-            <li><%= link_to "Edit #{current_user.username} information", edit_user_path(current_user) %></li>
+            <%= link_to edit_user_path(current_user) do %>
+              <span><img src="https://upload.wikimedia.org/wikipedia/en/7/70/Shawn_Tok_Profile.jpg" alt="Shawn Tok" class="img-rounded profile-picture">      <%= current_user.username %></span>
+            <% end %>
           <% end %>
         </ul>
 
         <ul class="navbar-nav navbar-right special-color">
+          <% if current_user != nil && current_user != current_user.donor %>
+          <%= link_to "Request a Scholarship", new_scholarship_path, :class => "btn btn-sm btn-request" %>
+          <% else %>
+          <% end %>
           <% if current_user == nil %>
             <li><%= link_to 'Log In', log_in_path %></li>
             <li><%= link_to 'Register', new_user_path %></li>

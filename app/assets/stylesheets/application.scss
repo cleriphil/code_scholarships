@@ -48,3 +48,52 @@
   top: 15px;
   list-style: none;
 }
+
+.profile-picture {
+  position: relative;
+  background-color: white;
+  width: 30px;
+  height: 30px;
+  bottom: 4px;
+}
+
+/* BUTTONS */
+
+.btn-request {
+  position: relative;
+  background-color: #fb8a2e;
+  color: white;
+  bottom: 4px;
+}
+
+/* PROGRESS BARS */
+
+.progress-bar {
+  background-color: #fb8a2e;
+}
+
+/* SCHOLARSHIP LISTING BLOCK */
+
+.listingWell {
+  background-color: white;
+}
+
+.listingPicture {
+  position: relative;
+  width: 120px;
+  bottom: 80px;
+}
+
+.descriptionWidth {
+  max-width: 450px;
+}
+
+.csRobot {
+  position: fixed;
+  width: 250px;
+}
+
+.csRobotWell {
+  position: relative;
+  right: 200px;
+}
