@@ -8,9 +8,10 @@ class Scholarship < ActiveRecord::Base
   belongs_to :user
 
   def self.search(search)
-    where("description LIKE ?", "%#{search}%")
-    where("title LIKE ?", "%#{search}%")
-    where("study_type LIKE ?", "%#{search}%")
+    if search
+      where("study_type ILIKE ? OR description ILIKE ? OR title ILIKE ?", "%#{search}%", "%#{search}%", "%#{search}%")
+    else
+      where(nil)
+    end
   end
-
 end
