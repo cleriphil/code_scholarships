@@ -12,7 +12,7 @@
     <tbody>
       <td><%= @scholarship.study_type %></td>
       <td><%= @scholarship.amount_requested  %></td>
-      <td><%= @scholarship.created_at  %></td>
+      <td><%= @scholarship.formatted_time_full  %></td>
       <!-- add dates for this page -->
     </tbody>
   </table>
@@ -20,7 +20,7 @@
   <h3>Description:</h3>
   <p><%= @scholarship.description %></p>
 
-  <h2><%= @progress %>% fulfilled</h2>
+  <h2><%= @progress %>% funded</h2>
   <div class="progress">
     <div class="progress-bar" style="width: <%= @progress %>%">
       <span class="sr-only">60% Complete</span>

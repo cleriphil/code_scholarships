@@ -1,8 +1,18 @@
-<li>
-  <%= link_to scholarship.title, scholarship_path(scholarship) %>
-  <%= scholarship.study_type %>
-  <%= scholarship.description %>
-  Requested: $<%= scholarship.amount_requested %>
-  Fulfilled: $<%= scholarship.amount_fulfilled %>
-  <%= User.find(scholarship.user_id).name %>
-</li>
+<div class="well listingWell">
+  <h3 class="descriptionWidth"><%= link_to scholarship.title, scholarship_path(scholarship) %></h3>
+  <h4><%= User.find(scholarship.user_id).name %></h4>
+  <span><img src="https://upload.wikimedia.org/wikipedia/en/7/70/Shawn_Tok_Profile.jpg" alt="Shawn Tok" class="img-rounded listingPicture pull-right"></span>
+
+  <h5><%= scholarship.study_type %></h5><br>
+  <p class="descriptionWidth"><%= scholarship.description %></p>
+  <hr>
+  <h3>$<%= scholarship.amount_fulfilled %></h3>
+  <div class="progress">
+    <div class="progress-bar" style="width: <%= ((scholarship.amount_fulfilled.to_f/scholarship.amount_requested.to_f)*100).round() %>%">
+      <span class="sr-only">60% Complete</span>
+    </div>
+  </div>
+  <strong><span><%= ((scholarship.amount_fulfilled.to_f/scholarship.amount_requested.to_f)*100).round() %>% funded</span></strong>
+  <strong><p class="pull-right"><%= scholarship.formatted_time %></p></strong>
+  <br>
+</div>
