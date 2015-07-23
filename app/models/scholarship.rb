@@ -5,12 +5,15 @@ class Scholarship < ActiveRecord::Base
   validates_presence_of :study_type
 
   has_many :donations
+  has_many :repayments
   belongs_to :user
 
   def self.search(search)
-    where("description LIKE ?", "%#{search}%")
-    where("title LIKE ?", "%#{search}%")
-    where("study_type LIKE ?", "%#{search}%")
+    if search
+      where("study_type ILIKE ? OR description ILIKE ? OR title ILIKE ?", "%#{search}%", "%#{search}%", "%#{search}%")
+    else
+      where(nil)
+    end
   end
 
   def formatted_time
@@ -20,6 +23,5 @@ class Scholarship < ActiveRecord::Base
   def formatted_time_full
      return self.created_at.in_time_zone("Pacific Time (US & Canada)").strftime("%A, %B %d at %I:%M %p")
   end
-
 
 end

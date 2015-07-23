@@ -1,5 +1,11 @@
+
 <div class="well listingWell thankyou">
-<h2>Thank You. You've contributed <strong>$<%= @donation.amount %></strong>!</h2>
-<hr>
-<%= link_to "Back to Scholarship", scholarship_path(@donation.scholarship_id), :class => "btn btn-request"  %>
+<% if current_user.donor %>
+  <h2>Thanks, you paid <strong>$<%= @donation.amount %></strong>!</h2>
+  <%= link_to "Back to Scholarship", scholarship_path(@donation.scholarship_id), :class => "btn btn-request" %>
+
+<% else %>
+  <h2>Thanks, you paid <strong>$<%= @repayment.total %></strong>!</h2>
+  <%= link_to "Back to Scholarship", scholarship_path(@repayment.scholarship_id), :class => "btn btn-request" %>
+<% end %>
 </div>
