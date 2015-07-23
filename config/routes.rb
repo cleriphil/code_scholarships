@@ -13,4 +13,9 @@ Rails.application.routes.draw do
   resources :donations do
     resources :charges
   end
+
+  resources :scholarships do
+    resources :repayments
+  end
+  
 end

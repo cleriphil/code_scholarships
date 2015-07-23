@@ -5,6 +5,7 @@ class Scholarship < ActiveRecord::Base
   validates_presence_of :study_type
 
   has_many :donations
+  has_many :repayments
   belongs_to :user
 
   def self.search(search)

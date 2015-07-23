@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
 
   has_many :scholarships
   has_many :donations
+  has_many :repayments
 
   def encrypt_password
     self.password_salt = BCrypt::Engine.generate_salt
