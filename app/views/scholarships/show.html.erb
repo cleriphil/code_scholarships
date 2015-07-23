@@ -1,5 +1,4 @@
 <div class="col-md-8">
-<h2><%= @scholarship.repayments.last.plan %></h2>
   <h2><%= @scholarship.title %></h2>
   <p>Submitted by <%= link_to User.find(@scholarship.user_id).name, user_path(@scholarship.user_id) %></p>
 

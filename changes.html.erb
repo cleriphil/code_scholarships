@@ -3,10 +3,7 @@
 <h4>Gold Plan: Six months after completion of your chosen program you will repay <%= number_to_currency(@scholarship.amount_requested * 1.15) %> over 1 year in monthly installments of <%= number_to_currency(@scholarship.amount_requested * 1.15/12.0) %></h4>
 <h4>Bronze Plan: Six months after completion of your chosen program you will repay <%= number_to_currency(@scholarship.amount_requested * 1.2) %> over 5 years in monthly installments of <%= number_to_currency(@scholarship.amount_requested * 1.2/60.0) %></h4>
 
-
-
 <%= bootstrap_form_for [@scholarship, @repayment] do |f| %>
-  <%= f.label :total %>
-  <%= f.text_field :total %>
-  <%= f.submit "Pay"%>
+<%= f.select(:plan, ['Platinum', 'Gold', 'Bronze']) %>
+<%= f.submit "Submit"%>
 <% end %>
