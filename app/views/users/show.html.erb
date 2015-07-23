@@ -10,8 +10,9 @@
   <% else %>
     Account Type: Your account is set up as looking for donations.
   <% end %>
-  <li><%= image_tag current_user.avatar.url(:thumb) %></li>
-
+  <br>
+  <%= image_tag current_user.avatar.url(:thumb) %>
+  <%= image_tag current_user.avatar.url(:mini) %>
   </p>
 
 
