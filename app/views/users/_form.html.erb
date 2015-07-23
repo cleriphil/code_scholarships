@@ -14,6 +14,10 @@
   <%=f.text_field :city %><br>
   <%=f.label :description %><br>
   <%=f.text_area :description %><br>
+  <%=f.label :profile_pic %><br>
+
+  <%= f.file_field :avatar %>
+
   <%=f.label :donor, "Are you a donor?"%>
   <%=f.collection_radio_buttons :donor, [[true, 'Yes'], [false, 'No']], :first, :last %><br>
   <%=f.submit "Save", :class => "btn btn-success" %>
