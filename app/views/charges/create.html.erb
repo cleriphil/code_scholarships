@@ -1,4 +1,5 @@
-<h2>Thanks, you paid <strong>$<%= @donation.amount %></strong>!</h2>
-
-
-<%= link_to "Back to Scholarship", scholarship_path(@donation.scholarship_id) %>
+<div class="well listingWell thankyou">
+<h2>Thank You. You've contributed <strong>$<%= @donation.amount %></strong>!</h2>
+<hr>
+<%= link_to "Back to Scholarship", scholarship_path(@donation.scholarship_id), :class => "btn btn-request"  %>
+</div>
