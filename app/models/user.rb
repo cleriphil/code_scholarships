@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   validates_confirmation_of :password
   before_save :encrypt_password
   validates :name, :presence => true
+  validates :password, :presence => true
   validates :username, :presence => true
   validates :email, :presence => true
   validates :description, :presence => true

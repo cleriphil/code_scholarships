@@ -11,7 +11,7 @@ class UsersController < ApplicationController
       redirect_to "/"
     else
       flash[:alert] = "There was a problem creating your account. Please try again."
-      redirect_to :back
+      render :new
     end
   end
 
@@ -52,6 +52,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :password, :email, :name, :donor, :city, :description, :avatar)
+    params.require(:user).permit(:username, :password, :password_confirmation, :email, :name, :donor, :city, :description, :avatar)
   end
 end
