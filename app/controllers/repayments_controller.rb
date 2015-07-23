@@ -1,7 +1,7 @@
 class RepaymentsController < ApplicationController
   def index
   end
-  
+
   def new
     @scholarship = Scholarship.find(params[:scholarship_id])
     @repayment = Repayment.new
@@ -29,12 +29,32 @@ class RepaymentsController < ApplicationController
     :card  => params[:stripeToken]
     )
 
-    charge = Stripe::Charge.create(
-    :customer    => customer.id,
-    :amount      => @donation.amount * 100,
-    :description => 'Rails Stripe customer',
-    :currency    => 'usd'
-    )
+    Stripe.api_key = "sk_test_0roGt5wf7EbTkpWbCQ5X6SPx"
+    if @repayment.plan == "Platinum"
+      Stripe::Plan.create(
+      :amount => (@scholarship.amount_requested * 1.1).to_i,
+      :name => 'Platinum Plan',
+      :interval => "year",
+      :currency => 'usd',
+      :id => 'platinum'
+      )
+    elsif @repayment.plan == "Gold"
+      Stripe::Plan.create(
+      :amount => (@scholarship.amount_requested * 1.15/12.0).to_i,
+      :name => 'Gold Plan',
+      :interval => "month",
+      :currency => 'usd',
+      :id => 'gold'
+      )
+    elsif @repayment.plan == "Bronze"
+      Stripe::Plan.create(
+      :amount => (@scholarship.amount_requested * 1.2/60.0).to_i,
+      :name => 'Bronze Plan',
+      :interval => "month",
+      :currency => 'usd',
+      :id => 'bronze'
+      )
+    end
 
   rescue Stripe::CardError => e
     flash[:error] = e.message
