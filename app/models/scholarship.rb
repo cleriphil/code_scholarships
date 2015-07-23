@@ -15,4 +15,13 @@ class Scholarship < ActiveRecord::Base
       where(nil)
     end
   end
+
+  def formatted_time
+    return self.created_at.in_time_zone("Pacific Time (US & Canada)").strftime("%B %d")
+  end
+
+  def formatted_time_full
+     return self.created_at.in_time_zone("Pacific Time (US & Canada)").strftime("%A, %B %d at %I:%M %p")
+  end
+
 end

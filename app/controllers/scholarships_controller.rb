@@ -24,7 +24,7 @@ class ScholarshipsController < ApplicationController
     @scholarship = @user.scholarships.new(scholarship_params)
     if @scholarship.save()
       flash[:notice] = "Your scholarship has been added!"
-      redirect_to scholarships_path
+      redirect_to scholarship_path(@scholarship)
     else
       flash[:alert] = "There was a problem with your submission. Please try again."
       render :new

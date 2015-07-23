@@ -1,4 +1,4 @@
-<h1>Code Scholarships</h1>
+
 <% if current_user %>
   <% if current_user.admin %>
     <h2> <%= link_to "Administration", users_path %> </h2>
@@ -10,16 +10,21 @@
   <h2>Find a scholarship to donate to...</h2>
   <%= form_tag(scholarships_path, :method => "get", id: "search-form") do %>
     <%= text_field_tag :search, params[:search], placeholder: "Search for Scholarships" %>
-    <%= submit_tag "Search" %>
+    <%= submit_tag "Search", class: "btn btn-sm" %>
   <% end %>
 <% else %>
-  <%= link_to "Request a Scholarship", new_scholarship_path %>
-<% end %>
 
+<% end %>
+<br>
+  <div class="pull-right csRobotWell">
+    <img src="http://www.clipartlord.com/wp-content/uploads/2014/09/robot29.png" alt="CS ROBOT" class="csRobot" />
+  </div>
+<div class="col-md-7"
   <% if @scholarships.present? %>
   <ul>
       <%= render @scholarships %>
   </ul>
+</div>
   <% else %>
     <p>There are no posts containing the term(s) <%= params[:search] %>.</p>
   <% end %>
