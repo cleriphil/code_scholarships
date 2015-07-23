@@ -1,6 +1,7 @@
-<% if current_user.donor %>
+<div class="well listingWell thankyou">
+  <% if current_user.donor %>
 
-  <%= form_tag  donation_charges_path(@donation) do %>
+    <%= form_tag  donation_charges_path(@donation) do %>
     <article>
       <label class="amount">
         <span>Amount: $<%= @donation.amount %>.00</span>
@@ -9,23 +10,25 @@
 
     <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
             data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-            data-description="A month's subscription"
+            data-description="Scholarship Donation"
             <% correct_amount = @donation.amount * 100 %>
             data-amount="<%= correct_amount %>"></script>
-  <% end %>
+    <% end %>
 
-<% else %>
-  <%= form_tag  repayment_charges_path(@repayment) do %>
-  <article>
-    <label class="amount">
-      <span>Amount: $<%= @repayment.total %>.00</span>
-    </label>
-  </article>
+  <% else %>
 
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-  data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-  data-description="A month's subscription"
-  <% correct_amount = @repayment.total * 100 %>
-  data-amount="<%= correct_amount %>"></script>
+    <%= form_tag  repayment_charges_path(@repayment) do %>
+    <article>
+      <label class="amount">
+        <span>Amount: $<%= @repayment.total %>.00</span>
+      </label>
+    </article>
+
+    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+      data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+      data-description="Scholarship Repayment"
+      <% correct_amount = @repayment.total * 100 %>
+      data-amount="<%= correct_amount %>"></script>
+    <% end %>
   <% end %>
-<% end %>
+</div>

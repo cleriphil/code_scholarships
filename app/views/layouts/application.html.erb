@@ -33,7 +33,7 @@
           <% if current_user == nil %>
             <li><%= link_to 'You must log in to view all contents of the site.', log_in_path %></li>
           <% else %>
-            <%= link_to edit_user_path(current_user) do %>
+            <%= link_to user_path(current_user) do %>
               <span><img src="https://upload.wikimedia.org/wikipedia/en/7/70/Shawn_Tok_Profile.jpg" alt="Shawn Tok" class="img-rounded profile-picture">      <%= current_user.username %></span>
             <% end %>
           <% end %>
@@ -56,11 +56,14 @@
     </div>
   </nav>
 
-  <div class = "container">
+  <div class = "container alertCenter">
     <%= flash[:notice] %>
     <%= flash[:alert] %>
+  </div>
 
+  <div class = "container">
     <%= yield %>
   </div>
+
 </body>
 </html>

@@ -1,23 +1,27 @@
-<% if current_user.id = @user.id %>
-  <p>
-  Name: <%= @user.name %><br>
+
+<div class="well listingWell col-md-7">
+  <span><%= image_tag current_user.avatar.url(:thumb) %></span><br>
+  <h2><%= @user.name %></h2>
   Username: <%= @user.username %><br>
   Email: <%= @user.email %><br>
-  City: <%= @user.city %><br>
-  Description: <%= @user.description %><br>
+  City: <%= @user.city %>
+  <hr>
+  <h5>Description:</h5>
+  <p><%= @user.description %></p>
+  <hr>
   <% if @user.donor %>
-    Account Type: Your account is set up as a donor account.
+    <strong>Account Type: Your account is set up as a donor account.</strong>
   <% else %>
-    Account Type: Your account is set up as looking for donations.
+    <strong>Account Type: Your account is set up as looking for donations.</strong>
   <% end %>
   <br>
-  <%= image_tag current_user.avatar.url(:thumb) %>
-  <%= image_tag current_user.avatar.url(:mini) %>
-  </p>
-
-
-<%= link_to "Edit Your Profile", edit_user_path(@user), :class => 'btn btn-primary' %>
-<%= link_to "Delete Profile", user_path(@user), :class => 'btn btn-danger',
-                :data => {:confirm => "Are you sure you want to delete your profile?",
-                          :method => 'delete'}%>
-<% end %>
+  <br>
+  <div>
+    <% if current_user.id == @user.id %>
+    <%= link_to "Edit Your Profile", edit_user_path(@user), :class => 'btn btn-request' %>
+    <%= link_to "Delete Profile", user_path(@user), :class => 'btn btn-request',
+                    :data => {:confirm => "Are you sure you want to delete your profile?",
+                              :method => 'delete'}%>
+    <% end %>
+  </div>
+</div>
