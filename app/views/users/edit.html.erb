@@ -21,8 +21,6 @@
 
     <%= f.file_field :avatar %>
 
-    <%=f.label :donor, "Are you a donor?", class: "whiteText"%>
-    <%=f.collection_radio_buttons :donor, [[true, 'Yes'], [false, 'No']], :first, :last %><br>
     <%=f.submit "Save", :class => "btn btn-success" %>
   <%end%>
 </div>

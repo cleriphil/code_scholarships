@@ -10,6 +10,7 @@ class ScholarshipsController < ApplicationController
 
   def show
     @scholarship = Scholarship.find(params[:id])
+    @payment_progress = ((@scholarship.amount_repaid.to_f/@scholarship.amount_owed.to_f)*100).round(2)
     @progress = ((@scholarship.amount_fulfilled.to_f/@scholarship.amount_requested.to_f)*100).round(2)
 
   end
@@ -23,11 +24,11 @@ class ScholarshipsController < ApplicationController
     @user = current_user
     @scholarship = @user.scholarships.new(scholarship_params)
     if @scholarship.plan == "Platinum Plan"
-      @scholarship.amount_owed = @scholarship.amount_requested * 1.1
+      @scholarship.amount_owed = (@scholarship.amount_requested * 1.1).ceil
     elsif @scholarship.plan == "Gold Plan"
-      @scholarship.amount_owed = @scholarship.amount_requested * 1.15
+      @scholarship.amount_owed = (@scholarship.amount_requested * 1.15).ceil
     else
-      @scholarship.amount_owed = @scholarship.amount_requested * 1.2
+      @scholarship.amount_owed = (@scholarship.amount_requested * 1.2).ceil
     end
     if @scholarship.save()
       ScholarshipMailer.scholarship_confirmation(@user).deliver

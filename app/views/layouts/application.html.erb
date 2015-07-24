@@ -42,7 +42,7 @@
         </ul>
 
         <ul class="navbar-nav navbar-right special-color">
-          <% if current_user != nil && current_user != current_user.donor %>
+          <% if current_user && current_user.donor != true %>
           <%= link_to "Request a Scholarship", new_scholarship_path, :class => "btn btn-sm btn-request" %>
           <% else %>
           <% end %>
@@ -57,13 +57,14 @@
 
     </div>
   </nav>
+  <div class = "alertCenter" id="flash">
+    <%= flash[:notice] %>
+    <%= flash[:alert] %>
+  </div>
 
-    <div class = "container alertCenter" id="flash">
-      <%= flash[:notice] %>
-      <%= flash[:alert] %>
-    </div>
 
   <div class = "container">
+
 
     <%= yield %>
   </div>

@@ -19,9 +19,13 @@
   <div>
     <% if current_user.id == @user.id %>
     <%= link_to "Edit Your Profile", edit_user_path(@user), :class => 'btn btn-request' %>
-    <%= link_to "Delete Profile", user_path(@user), :class => 'btn btn-request',
-                    :data => {:confirm => "Are you sure you want to delete your profile?",
-                              :method => 'delete'}%>
+      <% if !(@user.scholarships.any?) && !(@user.donations.any?)%>
+        <%= link_to "Delete Profile", user_path(@user), :class => 'btn btn-request',
+                      :data => {:confirm => "Are you sure you want to delete your profile?",
+                                :method => 'delete'}%>
+      <% else %>
+            You cannot delete your account because you have pending transactions.
+      <% end %>
     <% end %>
   </div>
 </div>

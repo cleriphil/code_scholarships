@@ -1,8 +1,6 @@
 
 <div class="col-md-8 well listingWell">
   <h1><%= @scholarship.title %></h1>
-  remove this line : amount owed <%= @scholarship.amount_owed %><br>
-  remove this line : amount repaid <%= @scholarship.amount_repaid %>
   <p>Submitted by <%= link_to User.find(@scholarship.user_id).name, user_path(@scholarship.user_id) %></p>
   <hr>
   <table class="table table-bordered">
@@ -28,34 +26,38 @@
 
     </div>
   </div>
-  <% if current_user && current_user.id == @scholarship.user_id %>
-    <h4><%= @payment_progress %>% paid</h4>
-    <div class="progress">
-      <div class="progress-bar" style="width: <%= @payment_progress %>%">
-      </div>
-    </div>
-  <% end %>
-  <% if @scholarship.amount_fulfilled >= @scholarship.amount_requested %>
-    <h4>Success! Scholarship needs have been met!</h4>
-  <% end %>
 
   <% if current_user && current_user.donor? && @scholarship.amount_fulfilled < @scholarship.amount_requested %>
     <%= link_to 'Donate', new_scholarship_donation_path(@scholarship), class: "btn btn-success btn-lg" %>
   <% end %>
 <hr>
   <% if current_user && current_user.id == @scholarship.user_id %>
+    <% if @scholarship.amount_fulfilled >= @scholarship.amount_requested %>
+    <h4>Success! Scholarship needs have been met!</h4>
+    <h3><%= @payment_progress %>% paid    (<%= number_to_currency (@scholarship.amount_repaid) %> / <%= number_to_currency(@scholarship.amount_owed) %>)</h3>
+    <div class="progress">
+      <div class="progress-bar progressGreen" style="width: <%= @payment_progress %>%">
+
+      </div>
+    </div>
+    <% end %>
 
     <h4>Chosen payment plan</h4>
     <% if @scholarship.plan == "Platinum Plan" %>
-      <h6>Platinum Plan: One year after completion of your chosen program you will repay <%= number_to_currency(@scholarship.amount_requested * 1.1) %> in a single payment.</h6>
+      <h4>Platinum Plan: One year after completion of your chosen program you will repay <%= number_to_currency((@scholarship.amount_requested * 1.1).ceil) %> in a single payment.</h4>
     <% elsif @scholarship.plan == "Gold Plan"  %>
-      <h6>Gold Plan: Six months after completion of your chosen program you will repay <%= number_to_currency(@scholarship.amount_requested * 1.15) %> over 1 year in monthly installments of <%= number_to_currency(@scholarship.amount_requested * 1.15/12.0) %></h6>
+      <h4>Gold Plan: Six months after completion of your chosen program you will repay <%= number_to_currency((@scholarship.amount_requested * 1.15).ceil) %> over 1 year in monthly installments of <%= number_to_currency((@scholarship.amount_requested * 1.15/12.0).ceil) %></h4>
     <% else %>
-      <h6>Bronze Plan: Six months after completion of your chosen program you will repay <%= number_to_currency(@scholarship.amount_requested * 1.2) %> over 5 years in monthly installments of <%= number_to_currency(@scholarship.amount_requested * 1.2/60.0) %></h6>
+      <h4>Bronze Plan: Six months after completion of your chosen program you will repay <%= number_to_currency((@scholarship.amount_requested * 1.2).ceil) %> over 5 years in monthly installments of <%= number_to_currency((@scholarship.amount_requested * 1.2/60.0).ceil) %></h4>
     <% end %>
+    <% if @scholarship.amount_fulfilled == @scholarship.amount_requested %>
+      <h4>You still owe <%= number_to_currency(@scholarship.amount_owed - @scholarship.amount_repaid) %>.</h4>
+    <% end %>
+
 
     <% if @scholarship.amount_fulfilled >= @scholarship.amount_requested %>
       <%= link_to 'Make a payment', new_scholarship_repayment_path(@scholarship), class: "btn btn-success" %>
+      <%= link_to 'Payment history', scholarship_repayments_path(@scholarship), class: "btn btn-success" %>
     <% end %>
 
   <% end %>
