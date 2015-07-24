@@ -7,7 +7,6 @@
 
 <% if current_user %>
 <% if current_user && current_user.donor? %>
-  <h2>Find a scholarship to donate to...</h2>
   <%= form_tag(scholarships_path, :method => "get", id: "search-form") do %>
     <%= text_field_tag :search, params[:search], placeholder: "Search for Scholarships" %>
     <%= submit_tag "Search", class: "btn btn-sm" %>
