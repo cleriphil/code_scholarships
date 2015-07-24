@@ -2,8 +2,16 @@
 	<% if current_user %>
 
 	<h2>Donate to <%= @scholarship.user.name %></h2>
-	<span><img src="https://upload.wikimedia.org/wikipedia/en/7/70/Shawn_Tok_Profile.jpg" alt="Shawn Tok" class="img-rounded donatePicture"></span>
+	<span><%= image_tag @scholarship.user.avatar.url(:thumb), :class => "img-rounded donatePicture" %></span>
+
 	<hr>
+	<div class="progress">
+    <div class="progress-bar progressSuccess" style="width: <%= ((@scholarship.amount_fulfilled.to_f/@scholarship.amount_requested.to_f)*100).round() %>%">
+      <span class="sr-only">60% Complete</span>
+    </div>
+  </div>
+	<h4>$<%= (@scholarship.amount_requested -= @scholarship.amount_fulfilled) %> Remaining</h4>
+	<br>
 	<%= render 'form' %>
 
 	<% else %>

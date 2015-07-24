@@ -1,14 +1,12 @@
-<%= render 'layouts/errors', :object => @scholarship %>
-
 <div class="well wellSignup">
   <h2 class="whiteText">Add a Scholarship</h2>
   <br>
   <%= bootstrap_form_for [@scholarship] do |f| %>
-    <%= f.text_field :title %>
-    <%= f.number_field :amount_requested %>
-    <%= f.text_area :description %>
+    <%= f.text_field :title, label_class: "whiteText" %>
+    <%= f.number_field :amount_requested, label_class: "whiteText" %>
+    <%= f.text_area :description, label_class: "whiteText" %>
     <%= f.select(:study_type, ['Bootcamp', 'University', 'Self-Learning']) %>
-    <%= f.select(:plan, ['Platinum Plan', 'Gold Plan', 'Bronze Plan'], { label: "Choose your repayment plan" }) %>
+    <%= f.select(:plan, ['Platinum Plan', 'Gold Plan', 'Bronze Plan'], { label: "Choose your repayment plan" })  %>
     <%= f.submit %>
   <% end %>
 </div>

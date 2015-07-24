@@ -10,7 +10,7 @@ class ScholarshipsController < ApplicationController
 
   def show
     @scholarship = Scholarship.find(params[:id])
-    @progress = ((@scholarship.amount_fulfilled.to_f/@scholarship.amount_requested.to_f)*100).round()
+    @progress = ((@scholarship.amount_fulfilled.to_f/@scholarship.amount_requested.to_f)*100).round(2)
 
   end
 
