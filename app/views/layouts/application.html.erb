@@ -36,8 +36,8 @@
             <li><%= link_to '', log_in_path %></li>
           <% else %>
             <%= link_to user_path(current_user) do %>
-              <span><img src="https://upload.wikimedia.org/wikipedia/en/7/70/Shawn_Tok_Profile.jpg" alt="Shawn Tok" class="img-rounded profile-picture">      <%= current_user.username %></span>
-            <% end %>
+             <span><%= image_tag current_user.avatar.url(:thumb), :class => "img-rounded profile-picture" %> <%= current_user.username %></span>
+              <% end %>
           <% end %>
         </ul>
 

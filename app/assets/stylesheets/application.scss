@@ -160,6 +160,7 @@
 .csRobot {
   position: fixed;
   width: 150px;
+  top: 200px;
 }
 
 .csRobotWell {
@@ -168,16 +169,9 @@
   display: none;
 }
 
-.cs_text_bubble {
-  position: fixed;
-  right: 330px;
-  top: 360px;
-  display: none;
-}
-
 .headerRobot {
   position: absolute;
-  top: 6px;
+  top: 8px;
   left: 250px;
   width: 1.5%;
 }
@@ -211,4 +205,8 @@
 
 .donatePicture {
   width: 150px;
+}
+
+.donorPicture {
+  width: 35px;
 }

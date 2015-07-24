@@ -1,7 +1,7 @@
 
 <div class="well listingWell wellDonation">
 <% if current_user.donor %>
-  <h2>Thank you for your contribution of <strong>$<%= @donation.amount %></strong></h2>
+  <h3>Thank you for your contribution of <strong>$<%= @donation.amount %></strong></h3>
   <hr>
   <%= link_to "Back to Scholarship", scholarship_path(@donation.scholarship_id), :class => "btn btnWhite" %>
 

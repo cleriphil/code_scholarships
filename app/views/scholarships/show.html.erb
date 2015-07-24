@@ -54,7 +54,7 @@
     <h3>Donations</h3>
       <table class="table table-bordered">
         <thead>
-          <th width="100px">Amount</th>
+          <th width="120px">Amount</th>
           <th>Donor</th>
         </thead>
         <% @scholarship.donations.each do |donation| %>
@@ -62,7 +62,7 @@
         <tbody>
 
           <td>$ <%= donation.amount %> USD</td>
-          <td><%= link_to User.find(donation.user_id).name, user_path(donation.user_id) %></td>
+          <td><%= image_tag @scholarship.user.avatar.url(:thumb), :class => "img-rounded pull-left donorPicture" %>&nbsp;&nbsp;<%= link_to User.find(donation.user_id).name, user_path(donation.user_id) %></td>
           <% end %>
 
         </tbody>
