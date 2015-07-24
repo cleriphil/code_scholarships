@@ -47,13 +47,13 @@
 <hr>
   <% if current_user && current_user.id == @scholarship.user_id %>
 
-    <h3>Chosen payment plan</h3>
+    <h4>Chosen payment plan</h4>
     <% if @scholarship.plan == "Platinum Plan" %>
-      <h4>Platinum Plan: One year after completion of your chosen program you will repay <%= number_to_currency(@scholarship.amount_requested * 1.1) %> in a single payment.</h4>
+      <h6>Platinum Plan: One year after completion of your chosen program you will repay <%= number_to_currency(@scholarship.amount_requested * 1.1) %> in a single payment.</h6>
     <% elsif @scholarship.plan == "Gold Plan"  %>
-      <h4>Gold Plan: Six months after completion of your chosen program you will repay <%= number_to_currency(@scholarship.amount_requested * 1.15) %> over 1 year in monthly installments of <%= number_to_currency(@scholarship.amount_requested * 1.15/12.0) %></h4>
+      <h6>Gold Plan: Six months after completion of your chosen program you will repay <%= number_to_currency(@scholarship.amount_requested * 1.15) %> over 1 year in monthly installments of <%= number_to_currency(@scholarship.amount_requested * 1.15/12.0) %></h6>
     <% else %>
-      <h4>Bronze Plan: Six months after completion of your chosen program you will repay <%= number_to_currency(@scholarship.amount_requested * 1.2) %> over 5 years in monthly installments of <%= number_to_currency(@scholarship.amount_requested * 1.2/60.0) %></h4>
+      <h6>Bronze Plan: Six months after completion of your chosen program you will repay <%= number_to_currency(@scholarship.amount_requested * 1.2) %> over 5 years in monthly installments of <%= number_to_currency(@scholarship.amount_requested * 1.2/60.0) %></h6>
     <% end %>
 
     <% if @scholarship.amount_fulfilled >= @scholarship.amount_requested %>
