@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       flash[:notice] = "Welcome to the site!"
-      redirect_to "/"
+      redirect_to home_index_path
     else
       flash[:alert] = "There was a problem creating your account. Please try again."
       render :new
@@ -23,7 +23,7 @@ class UsersController < ApplicationController
     @user = current_user
     if @user.update(user_params)
       flash[:notice] = @user.username + " successfully updated!"
-      redirect_to '/'
+      redirect_to home_index_path
     else
       render :edit
     end
@@ -34,7 +34,7 @@ class UsersController < ApplicationController
     @user.destroy
     flash[:notice] = @user.name + " was successfully deleted!"
     if current_user == nil
-      redirect_to '/'
+      redirect_to home_index_path
     elsif current_user.admin
       redirect_to users_path
     end
