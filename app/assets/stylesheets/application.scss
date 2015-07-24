@@ -25,20 +25,20 @@
 /* LANDING PAGE */
 
 #bg {
-  position: fixed; 
-  top: -50%; 
-  left: -50%; 
-  width: 200%; 
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
   height: 200%;
 }
 
 #bg img {
-  position: absolute; 
-  top: 0; 
-  left: 0; 
-  right: 0; 
-  bottom: 0; 
-  margin: auto; 
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
   min-width: 50%;
   min-height: 50%;
   z-index: 1;
@@ -57,7 +57,7 @@
   color: #fb8a2e;
   font-size: 150%;
   top: 700px;
-  left: 450px;
+  left: 320px;
   background-color: #136ad5;
   width: 1000px;
   height: 200px;
@@ -170,7 +170,7 @@
 
 .cs_text_bubble {
   position: fixed;
-  right: 420px;
+  right: 330px;
   top: 360px;
   display: none;
 }
@@ -178,7 +178,7 @@
 .headerRobot {
   position: absolute;
   top: 6px;
-  left: 335px;
+  left: 250px;
   width: 1.5%;
 }
 
@@ -186,7 +186,7 @@
   position: absolute;
   text-align: center;
   top: 15px;
-  left: 600px;
+  left: 400px;
   color: white;
   display: none;
 }
