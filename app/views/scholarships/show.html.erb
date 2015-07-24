@@ -17,17 +17,15 @@
     </tbody>
   </table>
 
-  <h3>Description:</h3>
-  <p><%= @scholarship.description %></p>
-
-  <h3><%= @progress %>% funded</h3>
+  <h4>Description:</h4>
+  <h6 class="descriptionWidth"><%= @scholarship.description %></h6>
+  <br>
+  <h4><%= @progress %>% funded</h4>
   <div class="progress">
     <div class="progress-bar" style="width: <%= @progress %>%">
 
     </div>
   </div>
-
-
 
   <% if current_user && current_user.donor? && @scholarship.amount_fulfilled < @scholarship.amount_requested %>
     <%= link_to 'Donate', new_scholarship_donation_path(@scholarship), class: "btn btn-success btn-lg" %>
