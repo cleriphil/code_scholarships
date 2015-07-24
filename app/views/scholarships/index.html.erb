@@ -5,7 +5,6 @@
       <span class="pull-right"><%= image_tag scholarship.user.avatar.url(:thumb), :class => "img-rounded" %></span>
       <h3><%= link_to scholarship.title, scholarship_path(scholarship) %></h3>
       <h4><%= User.find(scholarship.user_id).name %></h4>
-      <h5><%= scholarship.description %></h5>
       Requested: $<%= scholarship.amount_requested %><br>
       Fulfilled: $<%= scholarship.amount_fulfilled %>
     </div>
