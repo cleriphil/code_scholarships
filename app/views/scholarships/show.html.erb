@@ -33,12 +33,12 @@
   <% if current_user && current_user.donor? %>
     <%= link_to 'Donate', new_scholarship_donation_path(@scholarship), class: "btn btn-success btn-lg" %>
   <% end %>
-
+<hr>
   <% if current_user && current_user.id == @scholarship.user_id %>
-    <h3>Repayment Plans</h3>
-    <h4>Platinum Plan: One year after completion of your chosen program you will repay <%= number_to_currency(@scholarship.amount_requested * 1.1) %> in a single payment.</h4>
-    <h4>Gold Plan: Six months after completion of your chosen program you will repay <%= number_to_currency(@scholarship.amount_requested * 1.15) %> over 1 year in monthly installments of <%= number_to_currency(@scholarship.amount_requested * 1.15/12.0) %></h4>
-    <h4>Bronze Plan: Six months after completion of your chosen program you will repay <%= number_to_currency(@scholarship.amount_requested * 1.2) %> over 5 years in monthly installments of <%= number_to_currency(@scholarship.amount_requested * 1.2/60.0) %></h4>
+    <h4>Repayment Plans</h4>
+    <h5>Platinum Plan: One year after completion of your chosen program you will repay <%= number_to_currency(@scholarship.amount_requested * 1.1) %> in a single payment.</h5>
+    <h5>Gold Plan: Six months after completion of your chosen program you will repay <%= number_to_currency(@scholarship.amount_requested * 1.15) %> over 1 year in monthly installments of <%= number_to_currency(@scholarship.amount_requested * 1.15/12.0) %></h5>
+    <h5>Bronze Plan: Six months after completion of your chosen program you will repay <%= number_to_currency(@scholarship.amount_requested * 1.2) %> over 5 years in monthly installments of <%= number_to_currency(@scholarship.amount_requested * 1.2/60.0) %></h5>
     <% if @scholarship.amount_fulfilled >= @scholarship.amount_requested %>
       <%= link_to 'Claim Scholarship', new_scholarship_repayment_path(@scholarship), class: "btn btn-info" %>
     <% end %>

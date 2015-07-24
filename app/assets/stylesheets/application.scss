@@ -16,6 +16,63 @@
  @import 'bootstrap-sprockets';
  @import 'bootstrap';
 
+/* LANDING PAGE */
+
+#bg {
+  position: fixed; 
+  top: -50%; 
+  left: -50%; 
+  width: 200%; 
+  height: 200%;
+}
+
+#bg img {
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0; 
+  margin: auto; 
+  min-width: 50%;
+  min-height: 50%;
+  z-index: 1;
+}
+
+.landingTitle {
+  position: relative;
+  color: white;
+  font-size: 360%;
+  left: 225px;
+  font-family: 'Coda', cursive;
+}
+
+.landingCaption {
+  position: absolute;
+  z-index: 100;
+  color: #fb8a2e;
+  font-size: 150%;
+  top: 700px;
+  left: 450px;
+  background-color: #136ad5;
+  width: 1000px;
+  height: 200px;
+  padding-top: 15px;
+  opacity: .95;
+  border-radius: 25px;
+}
+
+.landingPhrase {
+  text-align: center;
+  font-size: 155%;
+}
+.landingRobot {
+  top: 730px;
+  left: 580px;
+  position: absolute;
+  width: 70px;
+  z-index: 100;
+}
+
 /* NAVBAR */
 
 .navbar-header {
@@ -90,12 +147,27 @@
 
 .csRobot {
   position: fixed;
-  width: 250px;
+  width: 150px;
 }
 
 .csRobotWell {
   position: relative;
   right: 200px;
+  display: none;
+}
+
+.cs_text_bubble {
+  position: fixed;
+  right: 420px;
+  top: 370px;
+  display: none;
+}
+
+.headerRobot {
+  position: absolute;
+  top: 6px;
+  left: 335px;
+  width: 1.5%;
 }
 
 .thankyou {

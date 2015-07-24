@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>CodeScholarship</title>
+  <title>Code Scholarships</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -24,8 +24,10 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-
-        <%= link_to "Code Scholarships", "/", class: "navbar-brand"  %>
+       
+            <a href="#top" class="cd-top"><img src="http://www.clipartlord.com/wp-content/uploads/2014/09/robot29.png" alt="CS ROBOT" class="headerRobot" /></a>
+       
+        <%= link_to "Code Scholarships", home_index_path , class: "navbar-brand"  %>
       </div>
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
