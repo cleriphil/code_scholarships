@@ -31,8 +31,13 @@ class ChargesController < ApplicationController
         :currency    => 'usd'
       )
     else
-
       @repayment = Repayment.find(params[:repayment_id])
+
+
+      @scholarship = Scholarship.find(@repayment.scholarship_id)
+      @scholarship.amount_repaid += @repayment.amount
+      @scholarship.save
+
 
 
       customer = Stripe::Customer.create(
@@ -42,7 +47,7 @@ class ChargesController < ApplicationController
 
       charge = Stripe::Charge.create(
       :customer    => customer.id,
-      :amount      => @repayment.total * 100,
+      :amount      => @repayment.amount * 100,
       :description => 'Rails Stripe customer',
       :currency    => 'usd'
       )

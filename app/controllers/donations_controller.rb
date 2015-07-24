@@ -9,17 +9,21 @@ class DonationsController < ApplicationController
     @user = current_user
     @scholarship = Scholarship.find(params[:scholarship_id])
     @donation = @scholarship.donations.new(donation_params)
-    @donation.user_id = current_user.id
-    @user.donations.push(@donation)
-
-
-    if @donation.save
-      @scholarship.amount_fulfilled += @donation.amount
-      @scholarship.save
-      redirect_to new_donation_charge_path(@donation)
-    else
-      flash[:alert] = "There was a problem with your submission. Please try again."
+    if @scholarship.amount_requested < @donation.amount + @scholarship.amount_fulfilled
+      flash[:alert] = "The amount you donated was over the amount requested. Please try again."
       render :new
+    else  
+      @donation.user_id = current_user.id
+      @user.donations.push(@donation)
+
+      if @donation.save
+        @scholarship.amount_fulfilled += @donation.amount
+        @scholarship.save
+        redirect_to new_donation_charge_path(@donation)
+      else
+        flash[:alert] = "There was a problem with your submission. Please try again."
+        render :new
+      end
     end
   end
 

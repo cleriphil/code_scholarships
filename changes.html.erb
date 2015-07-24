@@ -7,3 +7,6 @@
 <%= f.select(:plan, ['Platinum', 'Gold', 'Bronze']) %>
 <%= f.submit "Submit"%>
 <% end %>
+
+
+@payment_progress = ((@scholarship.repayments/@scholarship.amount_fulfilled.to_f)*100).round()
