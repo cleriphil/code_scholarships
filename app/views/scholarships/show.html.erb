@@ -10,7 +10,7 @@
     </thead>
     <tbody>
       <td><%= @scholarship.study_type %></td>
-      <td><%= @scholarship.amount_requested  %></td>
+      <td>$ <%= @scholarship.amount_requested  %> USD</td>
       <td><%= @scholarship.formatted_time_full  %></td>
       <!-- add dates for this page -->
     </tbody>
@@ -48,7 +48,7 @@
 
 <div class="col-md-4">
   <br>
-  <iframe width="400" height="300" src="http://www.youtube.com/embed/hgvCzdJEGyA" frameborder="0"></iframe>
+  <iframe width="400" height="300" src="http://www.youtube.com/embed/jVbd2Yrqlzs" frameborder="0"></iframe>
 
   <% if @scholarship.donations.any? %>
     <h3>Donations</h3>
@@ -61,7 +61,7 @@
 
         <tbody>
 
-          <td><%= donation.amount %></td>
+          <td>$ <%= donation.amount %> USD</td>
           <td><%= link_to User.find(donation.user_id).name, user_path(donation.user_id) %></td>
           <% end %>
 

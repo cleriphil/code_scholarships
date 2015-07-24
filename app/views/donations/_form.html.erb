@@ -2,5 +2,6 @@
 
 <%= bootstrap_form_for [@scholarship, @donation] do |f| %>
   <%= f.number_field :amount %>
-  <%= f.submit %>
+  <br>
+  <%= f.submit "Submit" , :class => "btn btnWhite"%>
 <% end %>
