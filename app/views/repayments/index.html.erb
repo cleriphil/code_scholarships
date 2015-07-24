@@ -1,0 +1,23 @@
+<% if current_user.id == @scholarship.user_id %>
+  <h1>Payment History: <%= @scholarship.title %></h1>
+
+
+
+  <table class="table table-bordered">
+    <thead>
+      <th width="200px"> Amount paid</th>
+      <th>Payment date</th>
+    </thead>
+    <% @repayments.each do |repayment| %>
+    <tbody>
+      <td><%= number_to_currency(repayment.amount) %></td>
+      <td><%= repayment.created_at %></td>
+    </tbody>
+    <% end %>
+
+  </table>
+  <%= link_to 'Make a payment', new_scholarship_repayment_path(@scholarship), class: "btn btn-success" %>
+  <%= link_to 'Back to scholarship', scholarship_path(@scholarship), class: 'btn btn-success' %>
+<% else %>
+  <p>You are not authorized to view this information.</p>
+<% end %>
