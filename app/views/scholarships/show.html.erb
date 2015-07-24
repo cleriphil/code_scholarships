@@ -19,17 +19,17 @@
     </tbody>
   </table>
 
-  <h3>Description:</h3>
-  <p><%= @scholarship.description %></p>
-
-  <h3><%= @progress %>% funded</h3>
+  <h4>Description:</h4>
+  <h6 class="descriptionWidth"><%= @scholarship.description %></h6>
+  <br>
+  <h4><%= @progress %>% funded</h4>
   <div class="progress">
     <div class="progress-bar" style="width: <%= @progress %>%">
 
     </div>
   </div>
   <% if current_user && current_user.id == @scholarship.user_id %>
-    <h2><%= @payment_progress %>% paid</h2>
+    <h4><%= @payment_progress %>% paid</h4>
     <div class="progress">
       <div class="progress-bar" style="width: <%= @payment_progress %>%">
       </div>
