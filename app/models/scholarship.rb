@@ -3,6 +3,7 @@ class Scholarship < ActiveRecord::Base
   validates_presence_of :amount_fulfilled
   validates_presence_of :description
   validates_presence_of :study_type
+  validates_presence_of :plan
 
   has_many :donations
   has_many :repayments

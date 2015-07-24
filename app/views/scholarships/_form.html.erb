@@ -3,11 +3,12 @@
 <div class="well wellSignup">
   <h2 class="whiteText">Add a Scholarship</h2>
   <br>
-	<%= bootstrap_form_for [@scholarship] do |f| %>
-	  <%= f.text_field :title %>
-	  <%= f.number_field :amount_requested %>
-	  <%= f.text_area :description %>
-	  <%= f.select(:study_type, ['Bootcamp', 'University', 'Self-Learning']) %>
-	  <%= f.submit %>
-	<% end %>
+  <%= bootstrap_form_for [@scholarship] do |f| %>
+    <%= f.text_field :title %>
+    <%= f.number_field :amount_requested %>
+    <%= f.text_area :description %>
+    <%= f.select(:study_type, ['Bootcamp', 'University', 'Self-Learning']) %>
+    <%= f.select(:plan, ['Platinum Plan', 'Gold Plan', 'Bronze Plan'], { label: "Choose your repayment plan" }) %>
+    <%= f.submit %>
+  <% end %>
 </div>
