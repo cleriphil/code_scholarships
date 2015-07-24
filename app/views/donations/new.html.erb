@@ -1,7 +1,8 @@
 <div class="well wellDonation">
 	<% if current_user %>
 
-	<h2>Donate to the cause!</h2>
+	<h2>Donate to <%= @scholarship.user.name %></h2>
+	<span><img src="https://upload.wikimedia.org/wikipedia/en/7/70/Shawn_Tok_Profile.jpg" alt="Shawn Tok" class="img-rounded donatePicture"></span>
 	<hr>
 	<%= render 'form' %>
 

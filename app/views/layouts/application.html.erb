@@ -5,7 +5,7 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <link href='http://fonts.googleapis.com/css?family=Coda' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Fredoka+One|Russo+One|Unica+One|Squada+One' rel='stylesheet' type='text/css'>
   <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
   <script type="text/javascript">
   // This identifies your website in the createToken call below
@@ -24,16 +24,16 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-       
-            <a href="#top" class="cd-top"><img src="http://www.clipartlord.com/wp-content/uploads/2014/09/robot29.png" alt="CS ROBOT" class="headerRobot" /></a>
-       
+        <%= link_to home_secret_path do %>
+           <img src="http://www.clipartlord.com/wp-content/uploads/2014/09/robot29.png" alt="CS ROBOT" class="headerRobot" />
+        <% end %>
         <%= link_to "Code Scholarships", home_index_path , class: "navbar-brand"  %>
       </div>
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="navbar-nav navbar-left special-color">
           <% if current_user == nil %>
-            <li><%= link_to 'You must log in to view all contents of the site.', log_in_path %></li>
+            <li><%= link_to '', log_in_path %></li>
           <% else %>
             <%= link_to user_path(current_user) do %>
               <span><img src="https://upload.wikimedia.org/wikipedia/en/7/70/Shawn_Tok_Profile.jpg" alt="Shawn Tok" class="img-rounded profile-picture">      <%= current_user.username %></span>
@@ -47,10 +47,10 @@
           <% else %>
           <% end %>
           <% if current_user == nil %>
-            <li><%= link_to 'Log In', log_in_path %></li>
+            <li><%= link_to 'Sign In', log_in_path %></li>
             <li><%= link_to 'Register', new_user_path %></li>
           <% else %>
-            <li><%= link_to "Log Out", log_out_path %></li>
+            <li><%= link_to "Sign Out", log_out_path %></li>
           <% end %>
         </ul>
       </div>
@@ -58,7 +58,7 @@
     </div>
   </nav>
 
-  <div class = "container alertCenter">
+  <div class = "container alertCenter" id="flash">
     <%= flash[:notice] %>
     <%= flash[:alert] %>
   </div>

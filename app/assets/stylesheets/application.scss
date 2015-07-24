@@ -16,6 +16,12 @@
  @import 'bootstrap-sprockets';
  @import 'bootstrap';
 
+/* GENERAL */
+
+.whiteText {
+  color: white;
+}
+
 /* LANDING PAGE */
 
 #bg {
@@ -39,11 +45,10 @@
 }
 
 .landingTitle {
-  position: relative;
+  text-align: center;
   color: white;
-  font-size: 360%;
-  left: 225px;
-  font-family: 'Coda', cursive;
+  font-size: 400%;
+  font-family: 'Unica One', cursive;
 }
 
 .landingCaption {
@@ -56,7 +61,7 @@
   background-color: #136ad5;
   width: 1000px;
   height: 200px;
-  padding-top: 15px;
+  padding-top: 5px;
   opacity: .95;
   border-radius: 25px;
 }
@@ -65,23 +70,18 @@
   text-align: center;
   font-size: 155%;
 }
-.landingRobot {
-  top: 730px;
-  left: 580px;
-  position: absolute;
-  width: 70px;
-  z-index: 100;
-}
+
 
 /* NAVBAR */
 
 .navbar-header {
-  font-family: 'Coda', cursive;
+  font-family: 'Unica One', cursive;
 }
 
 .navbar-brand {
   background-color: #136ad5;
   color: white;
+  font-size: 170%;
 }
 
 .navbar-settings a:hover {
@@ -138,6 +138,7 @@
   text-align: center;
   top: 50px;
   left: 28%;
+  border-radius: 20px;
 }
 
 /* SCHOLARSHIP LISTING BLOCK */
@@ -170,7 +171,7 @@
 .cs_text_bubble {
   position: fixed;
   right: 420px;
-  top: 370px;
+  top: 360px;
   display: none;
 }
 
@@ -182,8 +183,12 @@
 }
 
 .alertCenter {
-  position: relative;
+  position: absolute;
   text-align: center;
+  top: 15px;
+  left: 600px;
+  color: white;
+  display: none;
 }
 
 /* DONATION PAGES */
@@ -200,6 +205,10 @@
   width: 500px;
   text-align: center;
   color: white;
-  top: 200px;
+  top: 150px;
   left: 28%;
+}
+
+.donatePicture {
+  width: 150px;
 }

@@ -1,8 +1,10 @@
-<h1>Log In</h1>
-<%=form_tag log_in_path do%>
-<%=label_tag :username %>
-<%=text_field_tag :username %>
-<%=label_tag :password %>
-<%=password_field_tag :password %>
-<%=submit_tag "Log in" %>
-<%end%>
+<div class="well wellSignup">	
+	<h1 class="whiteText">Sign In</h1><hr>
+	<%=form_tag log_in_path do%>
+	<%=label_tag :username %>
+	<%=text_field_tag :username %><br><br>
+	<%=label_tag :password %>
+	<%=password_field_tag :password %><br><br>
+	<%=submit_tag "Sign in", :class => "btn btnWhite" %>
+	<%end%>
+</div>

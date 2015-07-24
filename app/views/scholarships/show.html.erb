@@ -1,7 +1,7 @@
-<div class="col-md-8">
-  <h2><%= @scholarship.title %></h2>
+<div class="col-md-8 well listingWell">
+  <h1><%= @scholarship.title %></h1>
   <p>Submitted by <%= link_to User.find(@scholarship.user_id).name, user_path(@scholarship.user_id) %></p>
-
+  <hr>
   <table class="table table-bordered">
     <thead>
       <th>Type</th>
@@ -19,7 +19,7 @@
   <h3>Description:</h3>
   <p><%= @scholarship.description %></p>
 
-  <h2><%= @progress %>% funded</h2>
+  <h3><%= @progress %>% funded</h3>
   <div class="progress">
     <div class="progress-bar" style="width: <%= @progress %>%">
 
@@ -27,7 +27,7 @@
   </div>
 
   <% if @scholarship.amount_fulfilled >= @scholarship.amount_requested %>
-    <h3>Success! Scholarship needs have been met!</h3>
+    <h4>Success! Scholarship needs have been met!</h4>
   <% end %>
 
   <% if current_user && current_user.donor? %>
