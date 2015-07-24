@@ -59,11 +59,12 @@
   </nav>
 
     <div class = "container alertCenter" id="flash">
+      <%= flash[:notice] %>
+      <%= flash[:alert] %>
     </div>
 
   <div class = "container">
-      <%= flash[:notice] %>
-      <%= flash[:alert] %>
+
     <%= yield %>
   </div>
 

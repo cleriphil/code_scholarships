@@ -10,9 +10,9 @@ class DonationsController < ApplicationController
     @scholarship = Scholarship.find(params[:scholarship_id])
     @donation = @scholarship.donations.new(donation_params)
     if @scholarship.amount_requested < @donation.amount + @scholarship.amount_fulfilled
-      flash[:alert] = "The amount you donated was over the amount requested. Please try again."
+      flash[:alert] = "The amount you donated was over the amount requested."
       render :new
-    else  
+    else
       @donation.user_id = current_user.id
       @user.donations.push(@donation)
 
