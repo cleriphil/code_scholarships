@@ -8,7 +8,7 @@
     <%= f.number_field :amount_requested, label_class: "whiteText" %>
     <%= f.text_area :description, label_class: "whiteText" %>
     <%= f.select(:study_type, ['Bootcamp', 'University', 'Self-Learning']) %>
-    <%= f.select(:plan, ['Platinum Plan', 'Gold Plan', 'Bronze Plan'], { label: "Choose your repayment plan" }), label_class: "whiteText"  %>
+    <%= f.select(:plan, ['Platinum Plan', 'Gold Plan', 'Bronze Plan'], { label: "Choose your repayment plan" })  %>
     <%= f.submit %>
   <% end %>
 </div>
