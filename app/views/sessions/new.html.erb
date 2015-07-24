@@ -1,9 +1,9 @@
-<div class="well wellSignup">	
+<div class="well wellSignup">
 	<h1 class="whiteText">Sign In</h1><hr>
 	<%=form_tag log_in_path do%>
-	<%=label_tag :username %>
+	<%=label_tag :username, "Username", :class => "whiteText" %>
 	<%=text_field_tag :username %><br><br>
-	<%=label_tag :password %>
+	<%=label_tag :password, "Password", :class => "whiteText" %>
 	<%=password_field_tag :password %><br><br>
 	<%=submit_tag "Sign in", :class => "btn btnWhite" %>
 	<%end%>

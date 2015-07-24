@@ -1,7 +1,8 @@
 <div class="well listingWell">
   <h3 class="descriptionWidth"><%= link_to scholarship.title, scholarship_path(scholarship) %></h3>
   <h4><%= User.find(scholarship.user_id).name %></h4>
-  <span><img src="https://upload.wikimedia.org/wikipedia/en/7/70/Shawn_Tok_Profile.jpg" alt="Shawn Tok" class="img-rounded listingPicture pull-right"></span>
+
+  <span><%= image_tag scholarship.user.avatar.url(:thumb), :class => "img-rounded listingPicture pull-right" %></span>
 
   <h5><%= scholarship.study_type %></h5><br>
   <p class="descriptionWidth"><%= scholarship.description %></p>

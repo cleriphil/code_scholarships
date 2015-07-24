@@ -1,15 +1,12 @@
-<h2>Scholarships</h2>
 
-<ul>
+<div class="col-md-7">
   <% @scholarships.each do |scholarship| %>
-    <li>
-      <%= link_to scholarship.title, scholarship_path(scholarship) %>
-      <%= scholarship.study_type %>
-      <%= scholarship.description %>
-      Requested: $<%= scholarship.amount_requested %>
+    <div class="well listingWell">
+      <span class="pull-right"><%= image_tag scholarship.user.avatar.url(:thumb), :class => "img-rounded" %></span>
+      <h3><%= link_to scholarship.title, scholarship_path(scholarship) %></h3>
+      <h4><%= User.find(scholarship.user_id).name %></h4>
+      Requested: $<%= scholarship.amount_requested %><br>
       Fulfilled: $<%= scholarship.amount_fulfilled %>
-      <%= User.find(scholarship.user_id).name %>
-    </li>
+    </div>
   <% end %>
-</ul>
-<%= link_to "Request a Scholarship", new_scholarship_path %>
+</div>

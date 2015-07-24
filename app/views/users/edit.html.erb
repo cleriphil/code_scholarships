@@ -1,26 +1,26 @@
-<h1>Edit Profile</h1>
-<%= render 'layouts/errors', :object => @user %>
+<div class="well wellSignup">
+  <h1 class="whiteText">Edit Profile</h1>
+  <%= render 'layouts/errors', :object => @user %>
 
-  <%=form_for @user do |f| %>
-  <%=f.label :username %><br>
-  <%=f.text_field :username %><br>
-  <%=f.label :new_password, "New or current password" %><br>
-  <%=f.password_field :password %><br>
-  <%=f.label :confirm_new_password %><br>
-  <%=f.password_field :password_confirmation %><br>
-  <%=f.label :name %><br>
-  <%=f.text_field :name %><br>
-  <%=f.label :email %><br>
-  <%=f.text_field :email %><br>
-  <%=f.label :city %><br>
-  <%=f.text_field :city %><br>
-  <%=f.label :description %><br>
-  <%=f.text_area :description %><br>
-  <%=f.label :profile_pic %><br>
+    <%=form_for @user, html: { multipart: true } do |f| %>
+    <%=f.label :username, "Username",  class: "whiteText" %><br>
+    <%=f.text_field :username %><br>
+    <%=f.label :new_password, "New or current password", class: "whiteText" %><br>
+    <%=f.password_field :password %><br>
+    <%=f.label :confirm_new_password, "Confirm Password", class: "whiteText" %><br>
+    <%=f.password_field :password_confirmation %><br>
+    <%=f.label :name, "Name", class: "whiteText" %><br>
+    <%=f.text_field :name %><br>
+    <%=f.label :email, "Email", class: "whiteText" %><br>
+    <%=f.text_field :email %><br>
+    <%=f.label :city, "City", class: "whiteText" %><br>
+    <%=f.text_field :city %><br>
+    <%=f.label :description, "Description", class: "whiteText" %><br>
+    <%=f.text_area :description %><br>
+    <%=f.label :profile_pic, "Profile Picture", class: "whiteText" %><br>
 
-  <%= f.file_field :avatar %>
+    <%= f.file_field :avatar %>
 
-  <%=f.label :donor, "Are you a donor?"%>
-  <%=f.collection_radio_buttons :donor, [[true, 'Yes'], [false, 'No']], :first, :last %><br>
-  <%=f.submit "Save", :class => "btn btn-success" %>
-<%end%>
+    <%=f.submit "Save", :class => "btn btn-success" %>
+  <%end%>
+</div>

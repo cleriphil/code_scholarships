@@ -10,9 +10,8 @@ class ScholarshipsController < ApplicationController
 
   def show
     @scholarship = Scholarship.find(params[:id])
-    @progress = ((@scholarship.amount_fulfilled.to_f/@scholarship.amount_requested.to_f)*100).round()
-    @payment_progress = ((@scholarship.amount_repaid.to_f/@scholarship.amount_owed.to_f)*100).round()
-
+    @payment_progress = ((@scholarship.amount_repaid.to_f/@scholarship.amount_owed.to_f)*100).round(2)
+    @progress = ((@scholarship.amount_fulfilled.to_f/@scholarship.amount_requested.to_f)*100).round(2)
 
   end
 
@@ -32,6 +31,7 @@ class ScholarshipsController < ApplicationController
       @scholarship.amount_owed = (@scholarship.amount_requested * 1.2).ceil
     end
     if @scholarship.save()
+      ScholarshipMailer.scholarship_confirmation(@user).deliver
       flash[:notice] = "Your scholarship has been added!"
       redirect_to scholarship_path(@scholarship)
     else

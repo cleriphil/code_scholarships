@@ -1,7 +1,6 @@
 
 <div class="col-md-8 well listingWell">
   <h1><%= @scholarship.title %></h1>
-
   <p>Submitted by <%= link_to User.find(@scholarship.user_id).name, user_path(@scholarship.user_id) %></p>
   <hr>
   <table class="table table-bordered">
@@ -30,7 +29,6 @@
 
 
 
-
   <% if current_user && current_user.donor? && @scholarship.amount_fulfilled < @scholarship.amount_requested %>
     <%= link_to 'Donate', new_scholarship_donation_path(@scholarship), class: "btn btn-success btn-lg" %>
   <% end %>
@@ -46,7 +44,7 @@
     </div>
     <% end %>
 
-    <h3>Chosen payment plan</h3>
+    <h4>Chosen payment plan</h4>
     <% if @scholarship.plan == "Platinum Plan" %>
       <h4>Platinum Plan: One year after completion of your chosen program you will repay <%= number_to_currency((@scholarship.amount_requested * 1.1).ceil) %> in a single payment.</h4>
     <% elsif @scholarship.plan == "Gold Plan"  %>
@@ -76,7 +74,7 @@
     <h3>Donations</h3>
       <table class="table table-bordered">
         <thead>
-          <th width="100px">Amount</th>
+          <th width="120px">Amount</th>
           <th>Donor</th>
         </thead>
         <% @scholarship.donations.each do |donation| %>
@@ -84,7 +82,7 @@
         <tbody>
 
           <td>$ <%= donation.amount %> USD</td>
-          <td><%= link_to User.find(donation.user_id).name, user_path(donation.user_id) %></td>
+          <td><%= image_tag donation.user.avatar.url(:thumb), :class => "img-rounded pull-left donorPicture" %>&nbsp;&nbsp;<%= link_to User.find(donation.user_id).name, user_path(donation.user_id) %></td>
           <% end %>
 
         </tbody>

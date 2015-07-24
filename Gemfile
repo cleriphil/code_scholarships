@@ -13,6 +13,7 @@ gem 'bootstrap_form'
 gem 'bcrypt', require: "bcrypt"
 gem 'stripe', git: 'https://github.com/stripe/stripe-ruby'
 gem "paperclip", "~> 4.3"
+gem 'mailgun-ruby', '~>1.0.3', require: 'mailgun'
 
 
 group :development do

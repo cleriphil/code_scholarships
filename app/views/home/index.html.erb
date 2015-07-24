@@ -7,7 +7,6 @@
 
 <% if current_user %>
 <% if current_user && current_user.donor? %>
-  <h2>Find a scholarship to donate to...</h2>
   <%= form_tag(scholarships_path, :method => "get", id: "search-form") do %>
     <%= text_field_tag :search, params[:search], placeholder: "Search for Scholarships" %>
     <%= submit_tag "Search", class: "btn btn-sm" %>
@@ -16,9 +15,6 @@
 
 <% end %>
 <br>
-  <div class="cs_text_bubble">
-  <h4 class="small"><strong>I can take you back to the top!</strong></h4>
-  </div>
   <div class="pull-right csRobotWell">
     <a href="#top" class="cd-top"><img src="http://www.clipartlord.com/wp-content/uploads/2014/09/robot29.png" alt="CS ROBOT" class="csRobot" /></a>
   </div>
