@@ -1,12 +1,15 @@
-<h3>Repayment Plans</h3>
+<h3>Your repayment plan:</h3>
+<% if @scholarship.plan == "Platinum Plan" %>
 <h4>Platinum Plan: One year after completion of your chosen program you will repay <%= number_to_currency(@scholarship.amount_requested * 1.1) %> in a single payment.</h4>
+<% elsif @scholarship.plan == "Gold Plan"  %>
 <h4>Gold Plan: Six months after completion of your chosen program you will repay <%= number_to_currency(@scholarship.amount_requested * 1.15) %> over 1 year in monthly installments of <%= number_to_currency(@scholarship.amount_requested * 1.15/12.0) %></h4>
+<% else %>
 <h4>Bronze Plan: Six months after completion of your chosen program you will repay <%= number_to_currency(@scholarship.amount_requested * 1.2) %> over 5 years in monthly installments of <%= number_to_currency(@scholarship.amount_requested * 1.2/60.0) %></h4>
+<% end %>
 
 
 
 <%= bootstrap_form_for [@scholarship, @repayment] do |f| %>
-  <%= f.label :total %>
-  <%= f.text_field :total %>
+  <%= f.text_field :amount %>
   <%= f.submit "Pay"%>
 <% end %>

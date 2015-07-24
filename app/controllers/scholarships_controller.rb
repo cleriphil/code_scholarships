@@ -22,6 +22,13 @@ class ScholarshipsController < ApplicationController
   def create
     @user = current_user
     @scholarship = @user.scholarships.new(scholarship_params)
+    if @scholarship.plan == "Platinum Plan"
+      @scholarship.amount_owed = @scholarship.amount_requested * 1.1
+    elsif @scholarship.plan == "Gold Plan"
+      @scholarship.amount_owed = @scholarship.amount_requested * 1.15
+    else
+      @scholarship.amount_owed = @scholarship.amount_requested * 1.2
+    end
     if @scholarship.save()
       flash[:notice] = "Your scholarship has been added!"
       redirect_to scholarship_path(@scholarship)
@@ -33,7 +40,7 @@ class ScholarshipsController < ApplicationController
 
   private
   def scholarship_params
-    params.require(:scholarship).permit(:amount_requested, :description, :study_type, :title)
+    params.require(:scholarship).permit(:amount_requested, :description, :study_type, :title, :plan)
   end
 
 end

@@ -6,8 +6,7 @@
   <%= link_to "Back to Scholarship", scholarship_path(@donation.scholarship_id), :class => "btn btnWhite" %>
 
 <% else %>
-  <h2>Thanks, you paid <strong>$<%= @repayment.total %></strong>!</h2>
-  <hr>
-  <%= link_to "Back to Scholarship", scholarship_path(@repayment.scholarship_id), :class => "btn btnWhite" %>
+  <h2>Thanks, you paid <strong>$<%= @repayment.amount %></strong>!</h2>
+  <%= link_to "Back to Scholarship", scholarship_path(@repayment.scholarship_id), :class => "btn btn-request" %>
 <% end %>
 </div>

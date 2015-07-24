@@ -13,7 +13,6 @@ class RepaymentsController < ApplicationController
     @scholarship = Scholarship.find(params[:scholarship_id])
     @repayment = @scholarship.repayments.new(repayment_params)
     @repayment.user_id = current_user.id
-    @repayment.total = @scholarship.amount_requested
     @repayment.scholarship_id = @scholarship.id
     @user.repayments.push(@repayment)
     if @repayment.save
@@ -28,6 +27,6 @@ class RepaymentsController < ApplicationController
 private
 
   def repayment_params
-    params.require(:repayment).permit(:plan)
+    params.require(:repayment).permit(:amount)
   end
 end
