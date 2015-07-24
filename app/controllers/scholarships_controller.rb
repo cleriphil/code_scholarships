@@ -30,6 +30,7 @@ class ScholarshipsController < ApplicationController
       @scholarship.amount_owed = @scholarship.amount_requested * 1.2
     end
     if @scholarship.save()
+      ScholarshipMailer.scholarship_confirmation(@user).deliver
       flash[:notice] = "Your scholarship has been added!"
       redirect_to scholarship_path(@scholarship)
     else
